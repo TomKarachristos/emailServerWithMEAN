@@ -8,7 +8,6 @@ module.exports = {
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
   port: process.env.PORT || 3000,
-  templateEngine: 'swig',
   // Session Cookie settings
   sessionCookie: {
     // session expiration is set by default to 24 hours

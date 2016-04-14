@@ -1,0 +1,38 @@
+In many files a process.env appear(https://nodejs.org/api/process.html#process_process_env), its 
+from node and it is an object containing the user environment.
+Here a nice explanation: http://thewebivore.com/super-simple-environment-variables-node-js/
+
+config/assets/default.js:
+  Here we stores all the file paths from files will be use. Have a
+  variable clinet and a variable server. Client have: lib,css,less,js,
+  views,templates
+  and the server have: grundConfig,allJS,models,routes,sockets,
+  config,policies,views
+
+config/assets/development.js:
+  here will be alla the assets who are in developement state only
+  have nothing inside
+
+config/assets/production.js:
+  here have the finally assets that will be output in the deploy when
+  the site it will be release, dont have many things cause 
+  all the files first they monify and union in one file and later
+  the out in production.js
+
+config/assets/test.js:
+  have all the test, there is three kind of tests:
+    clint:
+    server:
+    e2e: End-to-end testing is a methodology used to test whether 
+         the flow of an application is performing as designed from
+         start to finish. The purpose of carrying out end-to-end tests
+         is to identify system dependencies and 
+         to ensure that the right information is passed between various system components and systems.
+
+config/env/default.js:
+  here have the info for app like what the name of the app what the description, what
+  keywords googleAnalyticsTrackingID and thing like the port, sessionCookie, 
+  sessionSecret,sessionKey,sessionCollection,logo,favicon,profileUpload(??)
+
+config/env/development.js:
+  have require('./default')(previus file).

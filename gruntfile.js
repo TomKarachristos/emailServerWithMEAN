@@ -11,10 +11,13 @@ var _ = require('lodash'),
   path = require('path');
 
 module.exports = function (grunt) {
-  // Project Configuration
+  // Initialize a configuration object for the current project. 
+  // The specified configObject is used by tasks and can be accessed using the grunt.config method
+  // Note that any specified <% %> template strings will be processed when config data is retrieved.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    env: {
+    // configuration object for a plugin. The plugin have make a task by default by the same name
+    env: {//grunt-env package https://github.com/jsoverson/grunt-env
       test: {
         NODE_ENV: 'test'
       },
@@ -276,6 +279,7 @@ module.exports = function (grunt) {
       done();
     });
   });
+
 
   // Lint CSS and JavaScript files.
   grunt.registerTask('lint', ['less', 'jshint', 'eslint', 'csslint']);
