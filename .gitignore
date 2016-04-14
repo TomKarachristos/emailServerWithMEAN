@@ -24,6 +24,10 @@ modules/users/client/img/profile/uploads
 config/env/local.js
 *.pem
 
+# Test
+# ======================
+run-unit-test.html
+
 # Ignoring MEAN.JS's gh-pages branch for documenation
 _site/
 

@@ -12,7 +12,7 @@ docker-compose :Compose is a tool for defining and running multi-container Docke
 
 CONTRIBUTING.md and CHANGELOG: is for guthub, they convert in html. Its for meanjs github so i delete it.
 
-.travis.yml : http://code.tutsplus.com/tutorials/travis-ci-what-why-how--net-34771 . i will keep it for now
+.travis.yml : http://code.tutsplus.com/tutorials/travis-ci-what-why-how--net-34771 . delete it, why dont need it.
 
 .slugignore: for heroku.
 
