@@ -1,0 +1,28 @@
+procfile :  is for heroku. Heroku is a fully managed container-based cloud platform, with integrated data services and a powerful ecosystem, 
+for deploying and running modern apps. I delete it.
+
+README.MD : .md stands for markdown and is generated at the bottom of your github page as html.
+README.MD(2) : is the same but for the mean.js github. I delete it
+
+Dockerfile: Its for a program named docker. Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime
+, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
+I delete it
+
+docker-compose :Compose is a tool for defining and running multi-container Docker applications. delet it
+
+CONTRIBUTING.md and CHANGELOG: is for guthub, they convert in html. Its for meanjs github so i delete it.
+
+.travis.yml : http://code.tutsplus.com/tutorials/travis-ci-what-why-how--net-34771 . i will keep it for now
+
+.slugignore: for heroku.
+
+.cfignore: # List of files and directories to ignore when deploying to Cloud Foundry. delete it
+
+.editorconfig : its for a program editorConfi. EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs. The EditorConfig project consists of
+a file format for defining coding styles and a collection of text editor plugins that enable editors to read the file format and adhere to defined styles. install the package EditorConfig
+to use it!
+
+manifest.yml:  Its for a program bluemix. There is many programs that use the name monifest.yml file here is just for the bluemix.IBM Bluemix is a cloud platform as a service (PaaS) developed by IBM. 
+It supports several programming languages and services[1] as well as integrated DevOps to build, run, deploy and manage applications on the cloud. I delete it.
+
+All the files end have lind inside its for code analysis using lint. i will keep all and we will follow this rules.
