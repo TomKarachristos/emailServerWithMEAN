@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         NODE_ENV: 'production'
       }
     },
-    watch: {
+    watch: {//Run predefined tasks whenever watched file patterns are added, changed or deleted
       serverViews: {
         files: defaultAssets.server.views,
         options: {
@@ -72,15 +72,16 @@ module.exports = function (grunt) {
     },
     nodemon: {
       dev: {
-        script: 'server.js',
+        script: 'server.js',//Script that nodemon runs and restarts when changes are detected.
         options: {
-          nodeArgs: ['--debug'],
-          ext: 'js,html',
+          nodeArgs: ['--debug'],//List of arguments to be passed to node. The most common argument is --debug or --debug-brk to start a debugging server.
+          ext: 'js,html',//String with comma separated file extensions to watch. By default, nodemon watches .js files.
+          //List of folders to watch for changes. By default nodemon will traverse sub-directories, so there's no need in explicitly including sub-directories.
           watch: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.views, defaultAssets.server.allJS, defaultAssets.server.config)
         }
       }
     },
-    concurrent: {
+    concurrent: {//grunt-concurrent: Run grunt tasks concurrently
       default: ['nodemon', 'watch'],
       debug: ['nodemon', 'watch', 'node-inspector'],
       options: {

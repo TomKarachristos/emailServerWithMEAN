@@ -24,7 +24,7 @@ module.exports.loadModels = function loadModels() {
 };
 
 module.exports.init = function init(callback) {
-  mongoose.connect(function (db) {
+  mongoose.connect(function (db) { //conected to mongodb
     // Initialize express
     var app = express.init(db);
     if (callback) callback(app, db, config);
@@ -33,9 +33,9 @@ module.exports.init = function init(callback) {
 };
 
 module.exports.start = function start(callback) {
-  var _this = this;
+  var self = this;
 
-  _this.init(function (app, db, config) {
+  self.init(function (app, db, config) {
 
     // Start the app by listening on <port>
     app.listen(config.port, function () {

@@ -2,6 +2,29 @@ In many files a process.env appear(https://nodejs.org/api/process.html#process_p
 from node and it is an object containing the user environment.
 Here a nice explanation: http://thewebivore.com/super-simple-environment-variables-node-js/
 
+config/config.js:
+  This is a interface of all others folders in config folder.
+  All files that need a info about some env get it from here.
+  config read a NODE_ENV variable to decide if we are in test, develope, or production phase and do the
+  appropriate deeps, we give this varable when we run a command or with other way and we get accces by
+  process.env.NODE_ENV.
+  with getGlobbedPaths we get files by glob pattern. This is used in almast all the variables inside the
+  assets folder and thats why alla the variables follow the glob pattern. For example:
+  config.files.server.models = getGlobbedPaths(assets.server.models);
+  so now config.files.server.models have all the files depends in default.js object server.models.
+  and after in mongoose.js in lib we use this code  to get all the models files in mongoodb
+  config.files.server.models.forEach(function (modelPath) {
+    require(path.resolve(modelPath));
+  });
+  It does(no with this order): 
+    Validate Secure SSL mode can be used
+    Validate session secret
+    Validate NODE_ENV existence
+    Initialize global globbed files(like server and clint( and lib) code )
+    Initialize global globbed folders
+    Initialize global configuration(like config.meanjs who keep the package.json)
+    ++
+
 config/assets/default.js:
   Here we stores all the file paths from files will be use. Have a
   variable clinet and a variable server. Client have: lib,css,less,js,
@@ -34,5 +57,11 @@ config/env/default.js:
   keywords googleAnalyticsTrackingID and thing like the port, sessionCookie, 
   sessionSecret,sessionKey,sessionCollection,logo,favicon,profileUpload(??)
 
-config/env/development.js:
+config/env/development.js and production.js: 
+  This two is the almost the same but one is for develop and one for production. A
+  different is that in production log options output in a file and had a secure options
+  with private key.
   have require('./default')(previus file).
+
+config/lib/app.js:
+  here you start the app

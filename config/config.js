@@ -52,8 +52,8 @@ var getGlobbedPaths = function (globPatterns, excludes) {
  * Validate NODE_ENV existence
  */
 var validateEnvironmentVariable = function () {
+  console.log('process.env.NODE_ENV is ' + process.env.NODE_ENV);
   var environmentFiles = glob.sync('./config/env/' + process.env.NODE_ENV + '.js');
-  console.log();
   if (!environmentFiles.length) {
     if (process.env.NODE_ENV) {
       console.error(chalk.red('+ Error: No configuration file found for "' + process.env.NODE_ENV + '" environment using development instead'));
@@ -148,7 +148,7 @@ var initGlobalConfigFiles = function (config, assets) {
   // Setting Globbed policies files
   config.files.server.policies = getGlobbedPaths(assets.server.policies);
 
-  // Setting Globbed js files
+  // Setting Globbed js files concat: union
   config.files.client.js = getGlobbedPaths(assets.client.lib.js, 'public/').concat(getGlobbedPaths(assets.client.js, ['public/']));
 
   // Setting Globbed css files
