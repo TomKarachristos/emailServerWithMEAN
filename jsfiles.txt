@@ -4,14 +4,13 @@ Here a nice explanation: http://thewebivore.com/super-simple-environment-variabl
 
 config/config.js:
   This is a interface of all others folders in config folder.
-  All files that need a info about some env get it from here.
+  All files that need a info about some env get it from conif.
   config read a NODE_ENV variable to decide if we are in test, develope, or production phase and do the
-  appropriate deeps, we give this varable when we run a command or with other way and we get accces by
-  process.env.NODE_ENV.
-  with getGlobbedPaths we get files by glob pattern. This is used in almast all the variables inside the
-  assets folder and thats why alla the variables follow the glob pattern. For example:
+  appropriate deeps, we give this varable when we run the start command e.g. grunt env:test
+  With getGlobbedPaths function we get files by glob pattern. This is used in almast all the variables inside the
+  assets folder and thats why all the variables follow the glob pattern. For example:
   config.files.server.models = getGlobbedPaths(assets.server.models);
-  so now config.files.server.models have all the files depends in default.js object server.models.
+  so now config.files.server.models have all the files from the path inside in default.js object who gives the server.models.
   and after in mongoose.js in lib we use this code  to get all the models files in mongoodb
   config.files.server.models.forEach(function (modelPath) {
     require(path.resolve(modelPath));
@@ -33,8 +32,8 @@ config/assets/default.js:
   config,policies,views
 
 config/assets/development.js:
-  here will be alla the assets who are in developement state only
-  have nothing inside
+  here will be all the assets who are in developement state only
+  have nothing inside.
 
 config/assets/production.js:
   here have the finally assets that will be output in the deploy when
