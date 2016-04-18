@@ -1,0 +1,9 @@
+install git and github
+install mangodb -https://www.mongodb.org/downloads#production
+create a folder data in c:/ and inside a folder db: c:/data/db
+run C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe
+open cmd
+with cd go the directory of project
+run command: npm install
+run command: npm install grunt -g
+run grunt
