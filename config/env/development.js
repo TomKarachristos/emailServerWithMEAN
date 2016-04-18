@@ -4,6 +4,8 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
+    //if you dont have samething in process.env., the result will be 'mongodb://localhost/meanjs-dev',
+    //it will be using in the lib/mongoose.js
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
     options: {
       user: '',
@@ -34,6 +36,7 @@ module.exports = {
   app: {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
+  //if you want to put one of this variables, you just put it in process.env in another file
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
     clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
