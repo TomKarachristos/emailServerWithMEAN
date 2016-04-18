@@ -6,8 +6,8 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
     // Redirect to 404 when route not found
     $urlRouterProvider.otherwise(function ($injector, $location) {
-      $injector.get('$state').transitionTo('not-found', null, {
-        location: false
+      $injector.get('$state').transitionTo('not-found', null, {// $state.transitionTo(to, toParams [, options]
+        location: false// If true will update the url in the location bar,
       });
     });
 

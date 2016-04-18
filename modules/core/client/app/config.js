@@ -1,10 +1,12 @@
 'use strict';
 
 // Init the application configuration module for AngularJS application
+// just a data structure who keeps the depencies
 var ApplicationConfiguration = (function () {
   // Init module configuration options
   var applicationModuleName = 'emailServer';
-  var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ngMessages', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload'];
+  var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ngMessages',
+                                             'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload'];
 
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {
@@ -15,7 +17,7 @@ var ApplicationConfiguration = (function () {
     angular.module(applicationModuleName).requires.push(moduleName);
   };
 
-  return {
+  return {//here we make public the methods and variables
     applicationModuleName: applicationModuleName,
     applicationModuleVendorDependencies: applicationModuleVendorDependencies,
     registerModule: registerModule

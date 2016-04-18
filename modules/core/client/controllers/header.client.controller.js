@@ -9,7 +9,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     // Get the topbar menu
     $scope.menu = Menus.getMenu('topbar');
 
-    // Toggle the menu items
+    // Toggle the menu items, thats happen only when width is small
     $scope.isCollapsed = false;
     $scope.toggleCollapsibleMenu = function () {
       $scope.isCollapsed = !$scope.isCollapsed;
