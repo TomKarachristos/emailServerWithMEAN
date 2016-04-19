@@ -9,7 +9,7 @@ var _ = require('lodash'),
   testConfig = require('./config/env/test'),
   karmaReporters = ['progress'];
   karmaReporters.push('html');
-
+  karmaReporters.push('mocha');
 //if in the file config/env/test Coverage is true, do it!
 //is set to true during grunt "coverage"
 if (testConfig.coverage) {
@@ -89,12 +89,11 @@ module.exports = function (karmaConfig) {
     //   if you're controlling an actual programme on your computer, you've a certain overhead in booting up the browser, configuring a profile etc.
     // - IE (only Windows)
     browsers: ['PhantomJS'],
-
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
 
     // Continuous Integration mode
     // If true, it capture browsers, run tests and exit
-    singleRun: true
+    singleRun: false // ren all the test again when you change a js file(either code either test)
   });
 };
