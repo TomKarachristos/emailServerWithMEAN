@@ -10,8 +10,13 @@ angular.module('core').service('Menus', [
     this.menus = {};
 
     // A private function for rendering decision
+    // it be used inside the html with ng-if, it will render an element inline if you have permission
+    // The ngIf directive removes or recreates a portion of the DOM tree based on an {expression}.
     var shouldRender = function (user) {
+      //tilde(~) do that -(N+1)
+      //~this.roles.indexOf('*') means this.roles.indexOf('*') >=0
       if (!!~this.roles.indexOf('*')) {
+        // found it! Everyone can see this element cause no permission need
         return true;
       } else {
         if(!user) {

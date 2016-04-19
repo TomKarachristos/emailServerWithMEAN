@@ -12,7 +12,8 @@ angular.module('core')
         showValidationMessages = false,
         blurred = false;
 
-      options = scope.$eval(attrs.showErrors) || {};
+      //$eval and $parse don't evaluate JavaScript; they evaluate AngularJS expressions. 
+      options = scope.$eval(attrs.showErrors) || {};//NOTE why??seem like options is a json
       showSuccess = options.showSuccess || false;
       inputEl = el[0].querySelector('.form-control[name]') || el[0].querySelector('[name]');
       inputNgEl = angular.element(inputEl);
@@ -27,7 +28,7 @@ angular.module('core')
           el.removeClass('has-error');
           el.removeClass('has-success');
           showValidationMessages = false;
-        }, 0, false);
+        }, 0, false);//If set to false skips model dirty checking, otherwise will invoke fn within the $apply block.
       };
 
       scope.$watch(function () {
