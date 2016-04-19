@@ -1,0 +1,34 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"1337 Color Scheme",
+		"All Autocomplete",
+		"AngularJS",
+		"AngularJS Jasmine Boilerplate",
+		"ColorPicker",
+		"Emmet",
+		"Git",
+		"HTML5",
+		"HTMLAttributes",
+		"JavaScript Completions",
+		"JavaScript Patterns",
+		"JavaScriptFunctionDefinition",
+		"jQuery",
+		"Markdown Preview",
+		"Material Theme",
+		"Package Control",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-htmlhint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json"
+	]
+}

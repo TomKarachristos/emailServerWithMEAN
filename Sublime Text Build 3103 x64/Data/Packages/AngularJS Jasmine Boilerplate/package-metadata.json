@@ -1,0 +1,1 @@
+{"dependencies": [], "platforms": ["*"], "url": "https://github.com/namoscato/angular-jasmine-boilerplate-sublime", "description": "Generates boilerplate Jasmine tests from annotated AngularJS components in Sublime Text", "version": "1.0.3", "sublime_text": "*"}

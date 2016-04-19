@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"material_theme_small_tab": true,
+	"theme": "Material-Theme-Darker.sublime-theme"
+}
