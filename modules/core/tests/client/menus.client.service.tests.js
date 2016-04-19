@@ -67,15 +67,48 @@
     });
 
     describe('shouldRender', function() {
-      var menuOptions = {
+      var menuAllOptions = {
           roles: ['*', 'menurole']
         },
-        menu;
-      beforeEach(function() {
+        menuOptions = {
+          roles: ['user', 'admin']
+        },
+        menu,
+        Authentication;
+
+      beforeEach(inject(function(_Authentication_) {
+        Authentication = _Authentication_;
+      }));
+
+      it('should give access to anyone if options.roles in menu have *', function() {
+        menu = Menus.addMenu('menu1', menuAllOptions);
+        expect(menu.shouldRender(Authentication.user)).toBeTruthy();
+        expect(menu.shouldRender({roles: ['sdsadsasad']})).toBeTruthy();
+        expect(menu.shouldRender({roles: ['user']})).toBeTruthy();
+        expect(menu.shouldRender({roles: ['admin']})).toBeTruthy();
+        expect(menu.shouldRender({})).toBeTruthy();
+        expect(menu.shouldRender()).toBeTruthy();
+      });
+
+
+      it('should give access to a only to the users the role options says', function() {
         menu = Menus.addMenu('menu1', menuOptions);
+        expect(menu.shouldRender({roles: ['*']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['dsadsaasd']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['213213']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['user2123']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['auser2123']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['!admin123']})).toBeFalsy();
+        expect(menu.shouldRender({roles: ['user']})).toBeTruthy();
+        expect(menu.shouldRender({roles: ['admin']})).toBeTruthy();
       });
 
       describe('when logged out', function() {
+        beforeEach(function() {
+          menu = Menus.addMenu('menu1', menuAllOptions);
+        });
+       
+
         it('should render if menu is public', function() {
           expect(menu.shouldRender()).toBeTruthy();
         });
@@ -89,9 +122,15 @@
       });
 
       describe('when logged in', function() {
+        
+        beforeEach(function() {
+          menu = Menus.addMenu('menu1', menuAllOptions);
+        });
+       
         var user = {
           roles: ['1', 'menurole', '2']
         };
+
         describe('menu with * role', function() {
           it('should render', function() {
             expect(menu.shouldRender(user)).toBeTruthy();
