@@ -50,7 +50,6 @@ build/
 .sublime-project
 *.sublime-project
 *.sublime-workspace
-
 # IntelliJ
 # ========
 *.iml
