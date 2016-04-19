@@ -23,7 +23,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     // http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.$stateProvider
     // Home state routing
     $stateProvider
-    /*
+    /*TODO Appear only when you are sign in
     .state('not-found', {
       url: '/not-found',
       templateUrl: 'modules/core/client/views/404.client.view.html',

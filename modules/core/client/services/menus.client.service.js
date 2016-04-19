@@ -52,8 +52,7 @@ angular.module('core').service('Menus', [
     // Get the menu object by menu id
     this.getMenu = function (menuId) {
       // Validate that the menu exists
-      this.validateMenuExistance(menuId);//TODO understand what is do this here, maybe a condition miss?
-
+      this.validateMenuExistance(menuId);// throw a error when menu dont exist!
       // Return the menu object
       return this.menus[menuId];
     };
@@ -173,7 +172,7 @@ angular.module('core').service('Menus', [
 
     //Adding the topbar menu
     this.addMenu('topbar', {
-      roles: ['*']
+      roles: ['*']//*: thats means that all they had access, remember:if (!!~this.roles.indexOf('*'))
     });
   }
 ]);
