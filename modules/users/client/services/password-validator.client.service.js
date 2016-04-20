@@ -31,8 +31,7 @@ angular.module('users').factory('PasswordValidator', ['$window',
         if (!/[^A-Za-z0-9]/.test(password)) {
           return 'The password must contain at least one special character.';
         }
-      },
-
+      }
     ];
 
     return {
