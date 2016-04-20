@@ -9,7 +9,7 @@ angular.module('users').factory('PasswordValidator', ['$window',
       maxLength: 128,
       minLength: 7,
       minPhraseLength: 20,
-      minOptionalTestsToPass : 4,
+      minOptionalTestsToPass : 2,
     });
     return {
       getResult: function (password) {
@@ -17,7 +17,7 @@ angular.module('users').factory('PasswordValidator', ['$window',
         return result;
       },
       getPopoverMsg: function () {
-        var popoverMsg = 'Please enter a passphrase or password with greater than 10 characters, numbers, lowercase, upppercase, and special characters.';
+        var popoverMsg = 'Please enter a password with at least 7 characters (including numbers, lowercase, upppercase, and special characters)';
         return popoverMsg;
       }
     };
