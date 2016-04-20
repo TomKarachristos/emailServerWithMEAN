@@ -123,17 +123,17 @@
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    // it('should not allow a password with no uppercase letters - "p@$$w0rd!!"', function() {
-    //   scope.passwordMock.password = 'p@$$w0rd!!';
-    //   compileDirective();
-    //   scope.$digest();
+    it('should not allow a password with no uppercase letters - "p@$$w0rd!!"', function() {
+      scope.passwordMock.password = 'p@$$w0rd!!';
+      compileDirective();
+      scope.$digest();
 
-    //   expect(scope.form.password.$valid).toBeFalsy();
-    //   expect(scope.form.password.$error.required).toBeFalsy();
-    //   expect(scope.passwordErrors).toEqual(['The password must contain at least one uppercase letter.']);
-    //   expect(scope.requirementsColor).toEqual('primary');
-    //   expect(scope.requirementsProgress).toEqual('80');
-    // });
+      expect(scope.form.password.$valid).toBeFalsy();
+      expect(scope.form.password.$error.required).toBeFalsy();
+      expect(scope.passwordErrors).toEqual(['The password must contain at least one uppercase letter.']);
+      expect(scope.requirementsColor).toEqual('primary');
+      expect(scope.requirementsProgress).toEqual('80');
+    });
 
     it('should not allow a password with less than one number - "P@$$word!!"', function() {
       scope.passwordMock.password = 'P@$$word!!';

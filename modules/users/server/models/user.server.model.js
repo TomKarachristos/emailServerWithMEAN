@@ -14,8 +14,39 @@ var mongoose = require('mongoose'),
     maxLength              : 128,
     minLength              : 7,
     minPhraseLength        : 20,
-    minOptionalTestsToPass : 4,
+    minOptionalTestsToPass : 3,
   });
+  owasp.tests.optional = [
+
+        // require at least one lowercase letter
+        function(password) {
+          if (!/[a-z]/.test(password)) {
+            return 'The password must contain at least one lowercase letter.';
+          }
+        },
+
+        // // require at least one uppercase letter
+        // function(password) {
+        //   if (!/[A-Z]/.test(password)) {
+        //     return 'The password must contain at least one uppercase letter.';
+        //   }
+        // },
+
+        // require at least one number
+        function(password) {
+          if (!/[0-9]/.test(password)) {
+            return 'The password must contain at least one number.';
+          }
+        },
+
+        // require at least one special character
+        function(password) {
+          if (!/[^A-Za-z0-9]/.test(password)) {
+            return 'The password must contain at least one special character.';
+          }
+        },
+
+      ];
 
 /**
  * A Validation function for local strategy properties
