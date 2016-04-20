@@ -85,7 +85,7 @@ module.exports = function (karmaConfig) {
     // - Firefox
     // - Opera
     // - Safari (only Mac)
-    // - PhantomJSPhantomJS is a browser which runs headlessly (i.e. doesn't draw out the the screen). The benefits that brings is speed — 
+    // - PhantomJS is a browser which runs headlessly (i.e. doesn't draw out the the screen). The benefits that brings is speed — 
     //   if you're controlling an actual programme on your computer, you've a certain overhead in booting up the browser, configuring a profile etc.
     // - IE (only Windows)
     browsers: ['PhantomJS'],
