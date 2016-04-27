@@ -99,10 +99,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    eslint: {
-      options: {},
-      target: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e)
-    },
     csslint: {
       options: {
         csslintrc: '.csslintrc'
@@ -283,13 +279,13 @@ module.exports = function (grunt) {
 
 
   // Lint CSS and JavaScript files.
-  grunt.registerTask('lint', ['less', 'jshint', /*'eslint'*/ 'csslint']);
+  grunt.registerTask('lint', ['less', 'jshint','csslint']);
 
   // Lint project files and minify them into two production files.
   grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
 
   // Run the project tests
-  grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'karma:unit'/*, 'protractor'*/]);
+  grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'karma:unit', 'protractor']);
   grunt.registerTask('test:server', ['env:test', 'lint', 'server', 'mochaTest']);
   grunt.registerTask('test:client', ['env:test', 'lint', 'karma:unit']);
   grunt.registerTask('test:e2e', ['env:test', 'lint', 'dropdb', 'server', 'protractor']);
