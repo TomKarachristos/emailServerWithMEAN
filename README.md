@@ -1,3 +1,3 @@
-# emailServerWithMEAN - under construction 
+# emailServerWithMEAN 
 just for learning
  
